@@ -6,6 +6,9 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var fossilsRouter = require('./routes/fossils');
+var gridRouter = require('./routes/grid');  // Added the grid route
+var pickRouter = require('./routes/pick'); // Added the pick route for random item selection
 
 var app = express();
 
@@ -21,6 +24,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/fossils', fossilsRouter);
+app.use('/grid', gridRouter); // Added the grid route
+app.use('/pick', pickRouter); // Added the randomitem route for the random item selection page
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
